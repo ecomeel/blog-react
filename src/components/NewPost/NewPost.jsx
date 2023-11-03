@@ -1,7 +1,9 @@
+import Header from "../Header/Header"
+
 export default function NewPost() {
     return (
         <div className="new-post">
-            <header>New post</header>
+            <Header text='Новый пост' />
         </div>
     )
 }

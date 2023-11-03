@@ -1,0 +1,11 @@
+.app {
+    margin: 0 auto;
+    padding-top: 100px;
+    padding-bottom: 50px;
+    width: 1000px;
+    display: flex;
+}
+
+.app > div {
+    flex: 1
+}
