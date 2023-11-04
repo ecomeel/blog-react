@@ -10,7 +10,7 @@ function App() {
 
   useEffect(() => {
     setIsLoadingPosts(true)
-    fetch('https://jsonplaceholder.typicode.com/postss')
+    fetch('https://jsonplaceholder.typicode.com/posts')
     .then(response => {
       if (!response.ok) {
         throw new Error;
