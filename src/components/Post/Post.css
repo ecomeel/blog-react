@@ -17,3 +17,17 @@
     font-size: 25px;
     
 }
+
+.post__delete-post-button {
+    padding-top: 7px;
+    padding-bottom: 7px;
+    width: 50%;
+    font-size: 20px;
+    color: #fff;
+    background-color: crimson;
+    border: none;
+}
+
+.post__delete-post-button:hover {
+    opacity: .7;
+}
