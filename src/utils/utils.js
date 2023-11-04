@@ -37,16 +37,16 @@ export function setLeadingZero(date) {
 
 export function validation(title, body) {
     if (title == '') {
-        return {ok: false, error: 'Пустой заголовок поста'}
+        return {statusOk: false, errorType: 'Пустой заголовок поста'}
     }
     if (body == '') {
-        return {ok: false, error: 'Пустое содержание поста'}
+        return {statusOk: false, errorType: 'Пустое содержание поста'}
     }
     if (title.length >= 100) {
-        return {ok: false, error: 'Длина заголовка больше 100 символов'}
+        return {statusOk: false, errorType: 'Длина заголовка больше 100 символов'}
     }
     if (body.length >= 200) {
-        return {ok: false, error: 'Длина текста больше 200 символов'}
+        return {statusOk: false, errorType: 'Длина текста больше 200 символов'}
     }
-    return {ok: true}
+    return {statusOk: true, errorType: ''}
 }

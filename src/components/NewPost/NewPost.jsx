@@ -24,9 +24,9 @@ export default function NewPost({
     function handleAddNewPost() {
         setIsErrorvalid({ ...isErrorValid, isError: false });
 
-        const {statusOk, error} = validation(newPost.title, newPost.body);
+        const {statusOk, errorType} = validation(newPost.title, newPost.body);
         if (!statusOk) {
-            setIsErrorvalid({ isError: true, error: error })
+            setIsErrorvalid({ isError: true, error: errorType })
             return;
         }
 
@@ -47,6 +47,8 @@ export default function NewPost({
             ...postById,
             [post.id]: post,
         });
+
+        setNewPost({ title: '', body: '' })
     }
 
     function handleInput(event) {
@@ -71,7 +73,7 @@ export default function NewPost({
             <textarea
                 className="new-post__text"
                 placeholder="Напишите техт"
-                value={newPost.text}
+                value={newPost.body}
                 name="body"
                 onChange={handleInput}
             ></textarea>
