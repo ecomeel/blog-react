@@ -1,9 +1,10 @@
 const BASE_URL = "https://jsonplaceholder.typicode.com";
+const API_ERROR_MESSAGE = 'Api response fail!';
 
 export function getPostsFromApi() {
     return fetch(`${BASE_URL}/posts`).then((response) => {
         if (!response.ok) {
-            throw new Error('Api response fail!');
+            throw new Error(API_ERROR_MESSAGE);
         }
 
         return response.json();
