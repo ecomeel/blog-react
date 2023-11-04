@@ -1,7 +1,10 @@
 .post {
+    padding: 10px;
     display: flex;
     flex-direction: column;
     row-gap: 15px;
+    border: 3px solid rgba(176, 176, 176, 0.319);
+    background-color: rgba(169, 184, 197, 0.141);
 }
 
 .post__time {

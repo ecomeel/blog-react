@@ -14,7 +14,7 @@ export default function NewPost() {
                 className="new-post__text"
                 placeholder="Напишите техт"
             ></textarea>
-            <button className="new-post__post-button">Опубликовать</button>
+            <button className='new-post__post-button'>Опубликовать</button>
         </div>
     );
 }

@@ -2,7 +2,7 @@ import "./App.css";
 import NewPost from "./components/NewPost/NewPost";
 import PostsFeed from "./components/PostsFeed/PostsFeed";
 import { useState, useEffect } from "react";
-import { getPosts } from "./api/api.js";
+import { getPostsFromApi } from "./api/api.js";
 import { getNormalizedPosts } from "./utils/utils.js";
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
 
     useEffect(() => {
         setIsLoadingPosts(true);
-        getPosts()
+        getPostsFromApi()
             .then((posts) => {
                 setIsError(false);
                 setIsLoadingPosts(false);
@@ -35,6 +35,8 @@ function App() {
             <PostsFeed
                 postById={postById}
                 postsIds={postsIds}
+                setPostById={setPostById}
+                setPostsIds={setPostsIds}
                 isLoading={isLoadingPosts}
                 isError={isError}
             />
