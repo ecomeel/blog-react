@@ -8,6 +8,10 @@
     row-gap: 50px;
 }
 
-.posts-feed__empty-list {
+.posts-feed__empty-list, .posts-feed__loading-posts {
     color: #979797;
+}
+
+.posts-feed__error-loading {
+    color: rgb(143, 64, 64);
 }

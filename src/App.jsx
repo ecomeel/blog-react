@@ -6,13 +6,25 @@ import { useState, useEffect } from 'react'
 function App() {
   const [posts, setPosts] = useState(null);
   const [isLoadingPosts, setIsLoadingPosts] = useState(false)
+  const [isError, setIsError] = useState(false)
 
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/posts')
-    .then(response => response.json())
+    setIsLoadingPosts(true)
+    fetch('https://jsonplaceholder.typicode.com/postss')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error;
+      }
+
+      return response.json()
+    })
     .then(posts => {
-      setIsLoadingPosts(true)
+      setIsError(false)
+      setIsLoadingPosts(false)
       setPosts(posts)
+    })
+    .catch(error => {
+      setIsError(true)
       setIsLoadingPosts(false)
     })
   }, []);
@@ -23,6 +35,7 @@ function App() {
       <PostsFeed 
         posts={posts}
         isLoading={isLoadingPosts}
+        isError={isError}
       />
     </div>
   )
