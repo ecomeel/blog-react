@@ -1,21 +1,35 @@
 import Header from "../Header/Header";
 import "./NewPost.css";
 import { useState } from "react";
+import { addPostOnApi } from "../../api/api";
+import { v4 as uuidv4 } from "uuid";
 
-export default function NewPost() {
+export default function NewPost({
+    postById,
+    postsIds,
+    setPostById,
+    setPostsIds,
+}) {
     const [newPost, setNewPost] = useState({
-        date: "",
         title: "",
-        text: "",
+        body: "",
     });
 
     function handleNewPost() {
-        setNewPost({
-            ...newPost,
+        const post = {
+            title: newPost.title,
+            body: newPost.body,
             date: createDate(),
-        });
+            id: uuidv4(),
+        };
 
-        console.log(newPost);
+        addPostOnApi(post);
+
+        setPostsIds([post.id, ...postsIds]);
+        setPostById({
+            ...postById,
+            [post.id]: post,
+        });
     }
 
     function createDate() {
@@ -45,7 +59,7 @@ export default function NewPost() {
                 className="new-post__text"
                 placeholder="Напишите техт"
                 value={newPost.text}
-                name="text"
+                name="body"
                 onChange={handleInput}
             ></textarea>
             <button onClick={handleNewPost} className="new-post__post-button">

@@ -12,7 +12,7 @@ function App() {
     const [isLoadingPosts, setIsLoadingPosts] = useState(false);
     const [isError, setIsError] = useState(false);
 
-    const [count, setCount] = useState(0)
+    const [count, setCount] = useState(0);
 
     useEffect(() => {
         setIsLoadingPosts(true);
@@ -33,7 +33,12 @@ function App() {
 
     return (
         <div className="app">
-            <NewPost />
+            <NewPost
+                postById={postById}
+                postsIds={postsIds}
+                setPostById={setPostById}
+                setPostsIds={setPostsIds}
+            />
             <PostsFeed
                 postById={postById}
                 postsIds={postsIds}
