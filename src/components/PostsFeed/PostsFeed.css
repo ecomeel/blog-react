@@ -2,6 +2,12 @@
 
 }
 
+.posts-feed__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+}
+
 .posts-feed__empty-list {
     color: #979797;
 }

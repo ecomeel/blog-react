@@ -1,0 +1,19 @@
+.post {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+}
+
+.post__time {
+    font-size: 25px;
+    color: #0094ff;
+}
+
+.post__title {
+    font-weight: 700;
+}
+
+.post__text {
+    font-size: 25px;
+    
+}

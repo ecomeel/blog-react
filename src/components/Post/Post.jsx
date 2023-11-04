@@ -1,3 +1,5 @@
+import './Post.css'
+
 export default function Post({ post }) {
     return (
         <li className="post">
