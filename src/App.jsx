@@ -12,6 +12,8 @@ function App() {
     const [isLoadingPosts, setIsLoadingPosts] = useState(false);
     const [isError, setIsError] = useState(false);
 
+    const [count, setCount] = useState(0)
+
     useEffect(() => {
         setIsLoadingPosts(true);
         getPostsFromApi()
