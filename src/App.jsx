@@ -42,7 +42,6 @@ function App() {
             <PostsFeed
                 postById={postById}
                 postsIds={postsIds}
-                setPostById={setPostById}
                 setPostsIds={setPostsIds}
                 isLoading={isLoadingPosts}
                 isError={isError}

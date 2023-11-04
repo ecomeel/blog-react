@@ -2,6 +2,7 @@ import Header from "../Header/Header";
 import "./NewPost.css";
 import { useState } from "react";
 import { addPostOnApi } from "../../api/api";
+import { getDate, setLeadingZero } from "../../utils/utils";
 import { v4 as uuidv4 } from "uuid";
 
 export default function NewPost({
@@ -15,11 +16,14 @@ export default function NewPost({
         body: "",
     });
 
-    function handleNewPost() {
+    function handleAddNewPost() {
+        const newDate = getDate();
+        const correctDate = setLeadingZero(newDate)
+
         const post = {
             title: newPost.title,
             body: newPost.body,
-            date: createDate(),
+            date: correctDate,
             id: uuidv4(),
         };
 
@@ -30,10 +34,6 @@ export default function NewPost({
             ...postById,
             [post.id]: post,
         });
-    }
-
-    function createDate() {
-        return "1.2.23";
     }
 
     function handleInput(event) {
@@ -62,7 +62,7 @@ export default function NewPost({
                 name="body"
                 onChange={handleInput}
             ></textarea>
-            <button onClick={handleNewPost} className="new-post__post-button">
+            <button onClick={handleAddNewPost} className="new-post__post-button">
                 Опубликовать
             </button>
         </div>

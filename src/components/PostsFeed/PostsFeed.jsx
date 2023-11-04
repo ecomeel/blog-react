@@ -8,7 +8,6 @@ import { deletePostOnApi } from "../../api/api";
 export default function PostsFeed({
     postById,
     postsIds,
-    setPostById,
     setPostsIds,
     isLoading,
     isError,
