@@ -5,17 +5,25 @@ import { useState, useEffect } from 'react'
 
 function App() {
   const [posts, setPosts] = useState(null);
+  const [isLoadingPosts, setIsLoadingPosts] = useState(false)
 
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/posts')
     .then(response => response.json())
-    .then(posts => console.log(posts))
+    .then(posts => {
+      setIsLoadingPosts(true)
+      setPosts(posts)
+      setIsLoadingPosts(false)
+    })
   }, []);
 
   return (
     <div className="app">
       <NewPost />
-      <PostsFeed />
+      <PostsFeed 
+        posts={posts}
+        isLoading={isLoadingPosts}
+      />
     </div>
   )
 }
