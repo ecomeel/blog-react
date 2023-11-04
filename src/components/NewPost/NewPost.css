@@ -1,0 +1,43 @@
+.new-post {
+
+}
+
+.new-post > * {
+    display: block;
+}
+
+.new-post > *:not(:first-child, :last-child) {
+    margin-bottom: 30px;
+}
+
+.new-post__title, .new-post__text {
+    padding: 10px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    font: inherit;
+}
+
+.new-post__title::placeholder, .new-post__text::placeholder {
+    color: #979797;
+}
+
+.new-post__title {
+
+}
+
+.new-post__text {
+    height: 250px;
+}
+
+.new-post__post-button {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    color: #fff;
+    background-color: #0094ff;
+    border: none;
+}
+
+.new-post__post-button:hover {
+    opacity: .8;
+}

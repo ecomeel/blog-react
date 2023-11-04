@@ -4,6 +4,7 @@
     padding-bottom: 50px;
     width: 1000px;
     display: flex;
+    column-gap: 100px;
 }
 
 .app > div {
