@@ -14,6 +14,7 @@
 
 .post__title {
     font-weight: 700;
+    word-wrap: break-word;
 }
 
 .post__text {

@@ -24,10 +24,6 @@ export function getDate() {
         hours,
         minutes,
     };
-
-    const correctedTime = setLeadingZero([hours, minutes, day, month]);
-    const fullTime = `${correctedTime[0]}:${correctedTime[1]} ${correctedTime[2]}.${correctedTime[3]}.${year}`;
-    return fullTime;
 }
 
 export function setLeadingZero(date) {
@@ -37,4 +33,20 @@ export function setLeadingZero(date) {
             (date[key] = `0${date[key]}`);
     }
     return date;
+}
+
+export function validation(title, body) {
+    if (title == '') {
+        return {ok: false, error: 'Пустой заголовок поста'}
+    }
+    if (body == '') {
+        return {ok: false, error: 'Пустое содержание поста'}
+    }
+    if (title.length >= 100) {
+        return {ok: false, error: 'Длина заголовка больше 100 символов'}
+    }
+    if (body.length >= 200) {
+        return {ok: false, error: 'Длина текста больше 200 символов'}
+    }
+    return {ok: true}
 }

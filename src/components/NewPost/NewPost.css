@@ -41,3 +41,8 @@
 .new-post__post-button:hover {
     opacity: .8;
 }
+
+.error {
+    color: red;
+    font-size: 25px;
+}

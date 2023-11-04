@@ -2,7 +2,7 @@ import Header from "../Header/Header";
 import "./NewPost.css";
 import { useState } from "react";
 import { addPostOnApi } from "../../api/api";
-import { getDate, setLeadingZero } from "../../utils/utils";
+import { getDate, setLeadingZero, validation } from "../../utils/utils";
 import { v4 as uuidv4 } from "uuid";
 
 export default function NewPost({
@@ -16,9 +16,22 @@ export default function NewPost({
         body: "",
     });
 
+    const [isErrorValid, setIsErrorvalid] = useState({
+        isError: false,
+        error: "",
+    });
+
     function handleAddNewPost() {
+        setIsErrorvalid({ ...isErrorValid, isError: false });
+
+        const {statusOk, error} = validation(newPost.title, newPost.body);
+        if (!statusOk) {
+            setIsErrorvalid({ isError: true, error: error })
+            return;
+        }
+
         const newDate = getDate();
-        const correctDate = setLeadingZero(newDate)
+        const correctDate = setLeadingZero(newDate);
 
         const post = {
             title: newPost.title,
@@ -62,9 +75,13 @@ export default function NewPost({
                 name="body"
                 onChange={handleInput}
             ></textarea>
-            <button onClick={handleAddNewPost} className="new-post__post-button">
+            <button
+                onClick={handleAddNewPost}
+                className="new-post__post-button"
+            >
                 Опубликовать
             </button>
+            {isErrorValid.isError && <p className="error">{isErrorValid.error}</p>}
         </div>
     );
 }
