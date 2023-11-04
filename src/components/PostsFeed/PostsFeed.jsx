@@ -2,7 +2,7 @@ import Header from "../Header/Header";
 import "./PostsFeed.css";
 import Post from "../Post/Post";
 
-export default function PostsFeed({ posts, isLoading, isError }) {
+export default function PostsFeed({ postById, postsIds, isLoading, isError }) {
     return (
         <div className="posts-feed">
             <Header text="Лента" />
@@ -11,11 +11,11 @@ export default function PostsFeed({ posts, isLoading, isError }) {
 
                 {isError && <p className="posts-feed__error-loading">Ошибка загрузки постов!</p>}
 
-                {!isLoading && !posts && !isError && (
+                {!isLoading && !postsIds && !isError && (
                     <p className="posts-feed__empty-list">Тут пока пусто ...</p>
                 )}
 
-                {posts && posts.map((post) => <Post key={post.id} post={post} />)}
+                {postsIds && postsIds.map(id => <Post key={id} post={postById[id]} />)}
             </ul>
         </div>
     );
